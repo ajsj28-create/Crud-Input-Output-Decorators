@@ -1,0 +1,43 @@
+<div class="card mb-3 mb-md-0">
+    <div class="card-body">
+        <form #todoForm="ngForm" (ngSubmit)="onTodoAdd()">
+            <div class="form-group">
+                <label for="todoItem">Todo Item*</label>
+                <input
+                ngModel
+                name="todoItem"
+                required
+                type="text" id="todoItem" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="priority">Priority*</label>
+                <select
+                ngModel
+                name="priority"
+                required
+                class="form-control" id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div class="button-group text-right">
+                <button
+                *ngIf="!isEditMode"
+                [disabled]="todoForm.invalid"
+                mat-flat-button color="primary">Add Todo</button>
+                <button
+                (click)="onCancel()"
+                type="button"
+                *ngIf="isEditMode"
+                mat-flat-button color="warn">Cancel</button>
+                <button
+                (click)="onTodoUpdate()"
+                type="button"
+                *ngIf="isEditMode"
+                [disabled]="todoForm.invalid"
+                mat-flat-button class="btn-secondary ml-2">Update Todo</button>
+            </div>
+        </form>
+    </div>
+</div>

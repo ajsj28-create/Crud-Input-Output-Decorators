@@ -1,0 +1,16 @@
+<div class="row my-5">
+    <div class="col-md-6">
+        <app-todo-form1
+        (sendtodoObj)="onGetTodo($event)"
+        (sendupdatedObj)="onGetUpdatedTodo($event)"
+        [getPatchData]="patchData"
+        ></app-todo-form1>
+    </div>
+    <div class="col-md-6">
+        <app-todo-list1
+        [gettodoArray1]="todoArray1"
+        (sendPatchData)="onGetPatchData($event)"
+        (senddeleteObj)="onGetDeleteObj($event)"
+        ></app-todo-list1>
+    </div>
+</div>
