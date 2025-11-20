@@ -7,9 +7,7 @@ import { Itodo2 } from '../model/todo2';
   styleUrls: ['./todo-list2.component.scss']
 })
 export class TodoList2Component implements OnInit {
-
-  @Input() getTodoArray2!: Array<Itodo2>
-
+  
   constructor() { }
 
   ngOnInit(): void {
