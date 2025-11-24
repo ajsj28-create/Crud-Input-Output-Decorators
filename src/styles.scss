@@ -20,8 +20,17 @@ body {
     padding: .5rem .75rem;
 }
 
-body .mat-flat-button {
+body .mat-raised-button {
     min-width: 0;
     line-height: 34px;
     padding: 0px 10px;
+}
+
+tbody td {
+    align-content: center;
+}
+
+thead td {
+    text-align: center;
+    font-weight: 500;
 }

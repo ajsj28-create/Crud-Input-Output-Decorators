@@ -1,0 +1,56 @@
+<div *ngIf="inpStdArray.length > 0; else nostudents" class="table table-responsive">
+    <table class="table-bordered bg-white w-100">
+        <thead class="back-primary text-white">
+            <tr>
+                <td>Sr. No.</td>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Contact</td>
+                <td>Email</td>
+                <td>Is Active</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let std of inpStdArray; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ std.fname }}</td>
+                <td>{{ std.lname }}</td>
+                <td>{{ std.contact }}</td>
+                <td>{{ std.email }}</td>
+                <td class="text-center">
+                    <button 
+                    *ngIf="std.isActive"
+                    mat-mini-fab class="bg-success">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button 
+                    *ngIf="!std.isActive"
+                    mat-mini-fab class="bg-danger">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </td>
+                <td class="text-center">
+                    <button
+                    (click)="onStdEdit(std)"
+                    mat-mini-fab color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>                    
+                </td>
+                <td class="text-center">
+                    <button
+                    (click)="onStdDelete(std)"
+                    mat-mini-fab color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>                     
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #nostudents>
+    <div class="alert alert-info">
+        No students added
+    </div>
+</ng-template>

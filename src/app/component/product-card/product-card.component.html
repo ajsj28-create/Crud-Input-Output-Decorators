@@ -1,0 +1,38 @@
+<ng-container *ngIf="inpProdArray.length > 0; else noproducts">
+    <div *ngFor="let prod of inpProdArray" class="card mb-2">
+        <div
+        [ngClass]="{
+            'bg-primary': prod.category === 'Electronics',
+            'bg-success': prod.category === 'Groceries',
+            'bg-warning': prod.category === 'Furniture'
+        }"
+        class="card-header text-white">
+            <h3 class="mb-0">{{ prod.name }}</h3>        
+        </div>
+        <div class="card-body">
+            <p class="mb-0">{{ prod.description }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+            <span
+            [ngClass]="{
+                'text-primary': prod.category === 'Electronics',
+                'text-success': prod.category === 'Groceries',
+                'text-warning': prod.category === 'Furniture'
+            }"        
+            >{{ prod.category }}</span>
+            <div>
+                <button 
+                (click)="onProdEdit(prod)"
+                mat-raised-button color="primary">Edit</button>
+                <button
+                (click)="onProdDelete(prod)"
+                mat-raised-button color="warn" class="ml-2">Delete</button>
+            </div>
+        </div>
+    </div>   
+</ng-container>
+<ng-template #noproducts>
+    <div class="alert alert-info">
+        No products added
+    </div>
+</ng-template> 

@@ -1,0 +1,63 @@
+<p *ngIf="isEditMode" class="bg-warning px-2 py-1 text-white d-inline-block">Edit mode enabled</p>
+<div class="card">
+    <div class="card-body">
+        <form #studentForm="ngForm" (ngSubmit)="onStdAdd()">
+            <div class="form-group">
+                <label for="fname">First Name*</label>
+                <input
+                required
+                ngModel
+                name="fname"
+                type="text" class="form-control" id="fname">
+            </div>
+            <div class="form-group">
+                <label for="lname">Last Name*</label>
+                <input
+                required
+                ngModel
+                name="lname"
+                type="text" class="form-control" id="lname">
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact*</label>
+                <input
+                required
+                ngModel
+                name="contact"
+                type="text" class="form-control" id="contact">
+            </div>
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input
+                required
+                ngModel
+                name="email"
+                type="text" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="isActive">Is Active*</label>
+                <select
+                required
+                ngModel
+                name="isActive" id="isActive" class="form-control">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="text-right">
+                <button 
+                *ngIf="!isEditMode"
+                mat-mini-fab color="primary">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <button
+                (click)="onStdUpdate()"
+                type="button" 
+                *ngIf="isEditMode"
+                mat-mini-fab color="primary">
+                    <mat-icon>update</mat-icon>
+                </button>
+            </div>                        
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<p *ngIf="isEditMode" class="bg-warning px-2 py-1 text-white d-inline-block">Edit mode enabled</p>
+<div class="card">
+    <div class="card-body">
+        <form #todoForm="ngForm" (ngSubmit)="onTodoAdd()">
+            <div class="form-group">
+                <label for="todo">Todo Item*</label>
+                <input
+                required
+                ngModel
+                name="todo"
+                type="text" class="form-control" id="todo">
+            </div>
+            <div>
+                <button
+                *ngIf="!isEditMode"
+                mat-raised-button color="primary">Add Todo</button>
+                <button
+                (click)="onTodoUpdate()"
+                *ngIf="isEditMode"
+                type="button" mat-raised-button color="primary">Update Todo</button>
+            </div>
+        </form>
+    </div>
+</div>

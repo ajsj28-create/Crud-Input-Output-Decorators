@@ -1,0 +1,18 @@
+<ul *ngIf="inpTodoArray.length > 0; else notodos" class="list-group">
+    <li *ngFor="let todo of inpTodoArray" class="list-group-item d-flex justify-content-between align-items-center">
+        <span>{{ todo.todo }}</span>
+        <div>
+            <button
+            (click)="onTodoEdit(todo)"
+            mat-raised-button color="primary">Edit</button>
+            <button 
+            (click)="onTodoDelete(todo)"
+            mat-raised-button color="warn" class="ml-2">Delete</button>
+        </div>
+    </li>
+</ul>
+<ng-template #notodos>
+    <div class="alert alert-info">
+        No todos added
+    </div>
+</ng-template>

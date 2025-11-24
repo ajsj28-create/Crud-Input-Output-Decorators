@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h2>Todos Task</h2>
+    <div class="row mb-5">
+        <div class="col-md-6 mb-2 mb-md-0">
+            <app-todo-form
+            (outAddedTodo)="getAddedTodo($event)"
+            [inpEditTodo]="editTodo"
+            (outUpdatedTodo)="getUpdatedTodo($event)"
+            ></app-todo-form>
+        </div>
+        <div class="col-md-6">
+            <app-todo-list
+            [inpTodoArray]="todoArray"
+            (outEditTodo)="getEditTodo($event)"
+            (outDeleteTodo)="getDeleteTodo($event)"
+            ></app-todo-list>
+        </div>
+    </div>
+</div>

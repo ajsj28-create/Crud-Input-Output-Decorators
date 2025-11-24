@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Students Task</h2>
+    <div class="row mb-5">
+        <div class="col-md-4 mb-2 mb-md-0">
+            <app-student-form
+            (outUpdatedStd)="getUpdatedStd($event)"
+            [inpEditStd]="editStudent"
+            (outAddedStd)="getAddedStd($event)"
+            ></app-student-form>
+        </div>
+        <div class="col-md-8">
+            <app-student-table
+            (outDeleteStd)="getDeleteStd($event)"
+            (outEditStd)="getEditStd($event)"
+            [inpStdArray]="studentArray"
+            ></app-student-table>
+        </div>
+    </div>
+</div>
