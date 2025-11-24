@@ -21,12 +21,12 @@
                 <td>{{ std.email }}</td>
                 <td class="text-center">
                     <button 
-                    *ngIf="std.isActive"
+                    *ngIf="(std.isActive === 'true') ? true : false"
                     mat-mini-fab class="bg-success">
                         <mat-icon>check</mat-icon>
                     </button>
                     <button 
-                    *ngIf="!std.isActive"
+                    *ngIf="(std.isActive === 'true') ? false : true"
                     mat-mini-fab class="bg-danger">
                         <mat-icon>close</mat-icon>
                     </button>

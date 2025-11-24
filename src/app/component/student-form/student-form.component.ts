@@ -20,7 +20,7 @@ export class StudentFormComponent implements OnInit, OnChanges {
     if(this.form.valid){
       let obj = {...this.form.value, id: this.uuid()}
       this.form.reset()
-      this.outAddedStd.emit(obj)      
+      this.outAddedStd.emit(obj)    
     }else{
       this.showAlert(`Field can't be empty`)
     }

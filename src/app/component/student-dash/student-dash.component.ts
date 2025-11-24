@@ -17,7 +17,7 @@ export class StudentDashComponent implements OnInit {
       lname: 'Doe',
       contact: '1231231230',
       email: 'jd@gmail.com',
-      isActive: true,
+      isActive: 'true',
       id: this.uuid()
     },
     {
@@ -25,7 +25,7 @@ export class StudentDashComponent implements OnInit {
       lname: 'Doe',
       contact: '4564564560',
       email: 'md@gmail.com',
-      isActive: false,
+      isActive: 'false',
       id: this.uuid()
     },
   ];
@@ -33,6 +33,7 @@ export class StudentDashComponent implements OnInit {
   getAddedStd(obj: Istudent) {
     this.studentArray.push(obj)
     this.showAlert(`Student ${obj.fname} ${obj.lname} added successfully`)
+    console.log(this.studentArray)
   }
 
   getEditStd(obj: Istudent) {
@@ -40,8 +41,10 @@ export class StudentDashComponent implements OnInit {
   }
 
   getUpdatedStd(obj: Istudent) {
+    console.log(obj)
     let ind = this.studentArray.findIndex(ele => ele.id === obj.id)
     this.studentArray[ind] = obj
+    console.log(this.studentArray)
     this.showAlert(`Student ${obj.fname} ${obj.lname} updated successfully`)
   }
 

@@ -3,6 +3,6 @@ export interface Istudent {
     lname: string
     contact: string
     email: string
-    isActive: boolean
+    isActive: string
     id: string
 }
